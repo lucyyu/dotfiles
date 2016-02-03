@@ -8,6 +8,7 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'fatih/vim-go'
 	Plug 'ntpeters/vim-better-whitespace'
+	Plug 'majutsushi/tagbar'
 call plug#end()
 
 " airline
@@ -19,7 +20,9 @@ let g:airline_right_sep = ''
 
 " key bindings
 let mapleader = ","
+
 nnoremap <Leader>` :edit $MYVIMRC<CR> 
+
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :GitFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
@@ -28,9 +31,13 @@ nnoremap <Leader>l :BLines<CR>
 nnoremap <Leader>d :Lines<CR>
 nnoremap <Leader>r :BTags<CR>
 nnoremap <Leader>t :Tags<CR>
+
+nnoremap <Leader>z :TagbarToggle<CR>
+
 nnoremap <Leader>w :bprevious<CR>
 nnoremap <Leader>e :bnext<CR>
 nnoremap <Leader>q :bp <BAR> bd #<CR>
+
 nnoremap <Leader>p :!plc %<CR>
 
 " vim-go
