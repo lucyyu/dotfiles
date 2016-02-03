@@ -1,6 +1,7 @@
 " plugins
 call plug#begin()
 	Plug 'tpope/vim-sensible'
+	Plug 'tpope/vim-sleuth'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
