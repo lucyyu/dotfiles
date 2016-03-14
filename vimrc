@@ -41,6 +41,9 @@ nnoremap <Leader>q :bp <BAR> bd #<CR>
 
 nnoremap <Leader>p :!plc %<CR>
 
+nnoremap j gj
+nnoremap k gk
+
 " vim-go
 " automatic go fmt is quite annoying
 let g:go_fmt_autosave = 0
@@ -78,3 +81,6 @@ let g:tagbar_type_go = {
 set hidden
 set nu
 set autoindent
+
+" the built-in TeX indentation is absolutely terrible
+au BufRead,BufNewFile *.tex setlocal ai nocin nosi inde=
