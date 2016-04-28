@@ -84,3 +84,6 @@ set autoindent
 
 " the built-in TeX indentation is absolutely terrible
 au BufRead,BufNewFile *.tex setlocal ai nocin nosi inde=
+
+" experimental
+au VimEnter * syntax off
