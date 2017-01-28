@@ -81,6 +81,7 @@ let g:tagbar_type_go = {
 set hidden
 set nu
 set autoindent
+set mouse=a
 
 " the built-in TeX indentation is absolutely terrible
 au BufRead,BufNewFile *.tex setlocal ai nocin nosi inde=
