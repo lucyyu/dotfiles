@@ -10,6 +10,9 @@ call plug#begin()
   Plug 'fatih/vim-go'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'majutsushi/tagbar'
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " airline
@@ -41,14 +44,20 @@ nnoremap <Leader>q :bp <BAR> bd #<CR>
 
 nnoremap <Leader>p :!plc %<CR>
 
+nnoremap <Leader>s :SyntasticCheck<CR>
+
 nnoremap j gj
 nnoremap k gk
 
+" fzf
+" use Ag for file listing
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 " vim-go
-" automatic go fmt is quite annoying
+" Disable automatic gofmt
 let g:go_fmt_autosave = 0
 
-" go tagbar
+" tagbar for go
 let g:tagbar_type_go = {
   \ 'ctagstype' : 'go',
   \ 'kinds'     : [
@@ -77,14 +86,32 @@ let g:tagbar_type_go = {
   \ 'ctagsargs' : '-sort -silent'
   \ }
 
-" misc
+" Misc
 set hidden
 set nu
 set autoindent
+set noswapfile
 
-" the built-in TeX indentation is absolutely terrible
+" built-in TeX indentation is bad
 au BufRead,BufNewFile *.tex setlocal ai nocin nosi inde=
 
-" extra stuff for when the indentation plugin gets confused
+" Extra stuff for when the indentation plugin gets confused
 :command -nargs=1 Soft set tabstop=<args> softtabstop=<args> shiftwidth=<args> expandtab
 :command -nargs=1 Hard set tabstop=<args> softtabstop=<args> shiftwidth=<args> noexpandtab
+
+" JSX on .js files
+let g:jsx_ext_required = 0
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+" passive mode since Syntastic is pretty slow
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" use eslint for javascript
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
