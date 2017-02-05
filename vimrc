@@ -91,6 +91,7 @@ set hidden
 set nu
 set autoindent
 set noswapfile
+set mouse=a
 
 " built-in TeX indentation is bad
 au BufRead,BufNewFile *.tex setlocal ai nocin nosi inde=
