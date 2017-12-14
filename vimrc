@@ -93,6 +93,9 @@ set autoindent
 set noswapfile
 set mouse=a
 
+set cursorcolumn
+set cursorline
+
 " built-in TeX indentation is bad
 au BufRead,BufNewFile *.tex setlocal ai nocin nosi inde=
 
